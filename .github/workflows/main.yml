@@ -1,0 +1,25 @@
+name: Build and Deploy
+on:
+  push:
+    tags:
+      - "v*"
+jobs:
+
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:        
+      
+      - name: Checkout
+        uses: actions/checkout@v1
+      
+      - name: Use Node.js 8.x
+        uses: actions/setup-node@master
+        with:
+          node-version: 8.x
+      
+      - name: Install
+        run: |
+             npm install -g yarn
+      - name: Build and deploy
+        run: |
+             yarn install && yarn build

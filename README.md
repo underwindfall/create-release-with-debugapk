@@ -1,4 +1,31 @@
 # create-release-with-debugapk
+This is a github workflow action to create a release with an additional apk as an attachment. 
+
+## Inputs
+
+### GITHUB_TOKEN
+
+**required**  used as deploy key
+
+### tag_name
+**required**  used as deploy key
+
+### asset_path
+**required**  used as give which place to get apk
+
+### asset_name
+**required**  used as display name
+
+### asset_content_type 
+**required**  used as assent type
+
+## Outputs
+### `id`
+'The ID of the created Release'
+### `html_url
+'The URL users can navigate to in order to view the release'
+### `browser_download_url`
+'The URL users can navigate to in order to download the uploaded asset'
 
 ## Example Usage
 

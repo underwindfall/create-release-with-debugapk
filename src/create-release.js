@@ -14,9 +14,11 @@ async function createRelease() {
 
     // This removes the 'refs/tags' portion of the string, i.e. from 'refs/tags/v1.10.15' to 'v1.10.15'
     const tag = tagName.replace("refs/tags/", "");
-    const releaseName = core
-      .getInput("release_name", { required: true })
-      .replace("refs/tags/", "");
+    const releaseInputName =
+      core.getInput("release_name", { required: false }).length === 0
+        ? `Release ${tag}`
+        : core.getInput("release_name", { required: false });
+    const releaseName = releaseInputName.replace("refs/tags/", "");
     const body = core.getInput("body", { required: false });
     const draft = core.getInput("draft", { required: false }) === "true";
     const prerelease =

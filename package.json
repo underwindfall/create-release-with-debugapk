@@ -12,14 +12,14 @@
     "@actions/github": "^2.1.1"
   },
   "devDependencies": {
-    "@zeit/ncc": "^0.22.0",
+    "@zeit/ncc": "0.20.4",
     "glob-gitignore": "^1.0.14",
     "jest": "^25.2.7",
     "prettier": "^1.16.4"
   },
   "scripts": {
     "test": "jest",
-    "build": "ncc build src/main.js",
+    "build": "ncc build src/main.js && yarn prettier",
     "prettier": "node ./helper/prettier.js"
   },
   "jest": {

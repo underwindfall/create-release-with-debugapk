@@ -7,9 +7,9 @@
   "author": "underwindfall <14819756+underwindfall@users.noreply.github.com>",
   "license": "MIT",
   "dependencies": {
-    "@actions/core": "^1.2.3",
-    "@actions/exec": "^1.0.3",
-    "@actions/github": "^2.1.1"
+    "@actions/core": "1.0.0",
+    "@actions/exec": "1.0.0",
+    "@actions/github": "1.0.0"
   },
   "devDependencies": {
     "@zeit/ncc": "0.20.4",

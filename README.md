@@ -1,4 +1,6 @@
 # create-release-with-debugapk
+![Build and Check](https://github.com/underwindfall/create-release-with-debugapk/workflows/Build%20and%20Check/badge.svg)
+
 This is a github workflow action to create a release with an additional apk as an attachment. 
 
 ## Inputs
@@ -22,7 +24,7 @@ This is a github workflow action to create a release with an additional apk as a
 ## Outputs
 ### `id`
 'The ID of the created Release'
-### `html_url
+### `html_url` 
 'The URL users can navigate to in order to view the release'
 ### `browser_download_url`
 'The URL users can navigate to in order to download the uploaded asset'
@@ -65,4 +67,30 @@ jobs:
         asset_path: app/build/outputs/apk/debug/app-debug.apk
         asset_name: Example.apk
         asset_content_type: application/zip
+```
+
+## License
+
+```
+MIT License
+
+Copyright (c) 2020 Qifan Yang
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
 ```

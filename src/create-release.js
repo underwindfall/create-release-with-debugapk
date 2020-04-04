@@ -10,13 +10,15 @@ async function createRelease() {
     const { owner, repo } = context.repo;
 
     // Get the inputs from the workflow file: https://github.com/actions/toolkit/tree/master/packages/core#inputsoutputs
-    const tagName = core.getInput("tag_name", { required: true });
+    const tagName = core.getInput("tag_name", { required: true }).toString();
 
     // This removes the 'refs/tags' portion of the string, i.e. from 'refs/tags/v1.10.15' to 'v1.10.15'
     const tag = tagName.includes("refs/tags/")
       ? tagName.replace("refs/tags/", "")
       : tagName;
-    const releaseInput = core.getInput("release_name", { required: false });
+    const releaseInput = core
+      .getInput("release_name", { required: false })
+      .toString();
     let releaseInputName = "";
     if (releaseInput === undefined) {
       releaseInputName = `Release ${tag}`;

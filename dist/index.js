@@ -16841,13 +16841,13 @@ module.exports = /******/ (function(modules, runtime) {
         }
       }
       function escapeData(s) {
-        return (s || "")
+        return (s.toString() || "")
           .replace(/%/g, "%25")
           .replace(/\r/g, "%0D")
           .replace(/\n/g, "%0A");
       }
       function escapeProperty(s) {
-        return (s || "")
+        return (s.toString()|| "")
           .replace(/%/g, "%25")
           .replace(/\r/g, "%0D")
           .replace(/\n/g, "%0A")

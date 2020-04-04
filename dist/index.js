@@ -25434,7 +25434,7 @@ async function upload() {
         const github = new GitHub(process.env.GITHUB_TOKEN);
 
         // Get the inputs from the workflow file: https://github.com/actions/toolkit/tree/master/packages/core#inputsoutputs
-        const uploadUrl = core.getInput('upload_url', { required: true });
+        const uploadUrl = core.getInput('upload_url');
         const assetPath = core.getInput('asset_path', { required: true });
         const assetName = core.getInput('asset_name', { required: true });
         const assetContentType = core.getInput('asset_content_type', { required: true });
@@ -25452,7 +25452,7 @@ async function upload() {
             url: uploadUrl,
             headers,
             name: assetName,
-            file: fs.readFileSync(assetPath)
+            data: fs.readFileSync(assetPath)
         });
 
         // Get the browser_download_url for the uploaded release asset from the response

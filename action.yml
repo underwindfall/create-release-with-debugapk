@@ -19,9 +19,6 @@ inputs:
     description: '`true` to identify the release as a prerelease. `false` to identify the release as a full release. Default: `false`'
     required: false
     default: false
-  upload_url:
-    description: 'The URL for uploading assets to the release'
-    required: true
   asset_path:
     description: 'The path to the asset you want to upload'
     required: true

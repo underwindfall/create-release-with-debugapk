@@ -2,7 +2,7 @@
   "name": "create-release-with-debugapk",
   "version": "1.0.0",
   "description": "Create a release with debug apk as additional asset",
-  "main": "dist/index.js",
+  "main": "src/main.js",
   "repository": "git@github:underwindfall/create-release-with-debugapk.git",
   "author": "underwindfall <14819756+underwindfall@users.noreply.github.com>",
   "license": "MIT",

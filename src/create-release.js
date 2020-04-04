@@ -1,5 +1,6 @@
 const core = require("@actions/core");
 const { GitHub, context } = require("@actions/github");
+let { url } = require("./main");
 
 async function createRelease() {
   try {
@@ -55,6 +56,7 @@ async function createRelease() {
     core.setOutput("id", releaseId);
     core.setOutput("html_url", htmlUrl);
     core.setOutput("upload_url", uploadUrl);
+    return uploadUrl;
   } catch (error) {
     core.setFailed(error.message);
   }

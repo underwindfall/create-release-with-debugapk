@@ -43,7 +43,6 @@ describe("Upload Release Asset", () => {
   test("Upload release asset endpoint is called", async () => {
     core.getInput = jest
       .fn()
-      .mockReturnValueOnce("upload_url")
       .mockReturnValueOnce("asset_path")
       .mockReturnValueOnce("asset_name")
       .mockReturnValueOnce("asset_content_type");
@@ -80,7 +79,6 @@ describe("Upload Release Asset", () => {
   test("Action fails elegantly", async () => {
     core.getInput = jest
       .fn()
-      .mockReturnValueOnce("upload_url")
       .mockReturnValueOnce("asset_path")
       .mockReturnValueOnce("asset_name")
       .mockReturnValueOnce("asset_content_type");

@@ -1,7 +1,9 @@
-const createRelease = require('./create-release');
-const upload = require('./upload-asset');
+const createRelease = require("./create-release");
+const upload = require("./upload-asset");
+
 
 if (require.main === module) {
-  createRelease();
-  upload();
+  const url = createRelease();
+  upload(url);
 }
+

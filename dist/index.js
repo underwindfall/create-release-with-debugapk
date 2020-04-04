@@ -28,16 +28,18 @@ module.exports = /******/ (function(modules, runtime) {
     /******/
     /******/ /******/ return module.exports;
     /******/
-  }
+  } // expose the module cache
   /******/
   /******/
+  /******/ /******/ __webpack_require__.c = installedModules;
   /******/ __webpack_require__.ab = __dirname + "/"; // the startup function
   /******/
   /******/ /******/ function startup() {
     /******/ // Load entry module and return exports
-    /******/ return __webpack_require__(31);
+    /******/ return __webpack_require__((__webpack_require__.s = 31));
     /******/
-  } // run startup
+  } // initialize runtime
+  /******/ /******/ runtime(__webpack_require__); // run startup
   /******/
   /******/ /******/ return startup();
   /******/
@@ -303,8 +305,8 @@ module.exports = /******/ (function(modules, runtime) {
       /***/
     },
 
-    /***/ 18: /***/ function(module) {
-      module.exports = eval("require")("encoding");
+    /***/ 18: /***/ function() {
+      eval("require")("encoding");
 
       /***/
     },
@@ -396,17 +398,25 @@ module.exports = /******/ (function(modules, runtime) {
       /***/
     },
 
-    /***/ 31: /***/ function(
-      __unusedmodule,
-      __unusedexports,
-      __webpack_require__
-    ) {
+    /***/ 31: /***/ function(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony export (binding) */ __webpack_require__.d(
+        __webpack_exports__,
+        "url",
+        function() {
+          return url;
+        }
+      );
+      /* module decorator */ module = __webpack_require__.hmd(module);
       const createRelease = __webpack_require__(760);
       const upload = __webpack_require__(575);
 
-      if (require.main === require.cache[eval("__filename")]) {
+      let url = "";
+
+      if (__webpack_require__.c[__webpack_require__.s] === module) {
         createRelease();
-        upload();
+        upload(url);
       }
 
       /***/
@@ -1359,11 +1369,11 @@ module.exports = /******/ (function(modules, runtime) {
         var oppositeDirectionsLessThan =
           cmp(this.semver, "<", comp.semver, options) &&
           (this.operator === ">=" || this.operator === ">") &&
-          (comp.operator === "<=" || comp.operator === "<");
+            (comp.operator === "<=" || comp.operator === "<");
         var oppositeDirectionsGreaterThan =
           cmp(this.semver, ">", comp.semver, options) &&
           (this.operator === "<=" || this.operator === "<") &&
-          (comp.operator === ">=" || comp.operator === ">");
+            (comp.operator === ">=" || comp.operator === ">");
 
         return (
           sameDirectionIncreasing ||
@@ -9241,19 +9251,19 @@ module.exports = /******/ (function(modules, runtime) {
       const { GitHub } = __webpack_require__(469);
       const fs = __webpack_require__(747);
 
-      async function upload() {
+      async function upload(upload_url = "") {
         try {
           // Get authenticated GitHub client (Ocktokit): https://github.com/actions/toolkit/tree/master/packages/github#usage
           const github = new GitHub(process.env.GITHUB_TOKEN);
 
           // Get the inputs from the workflow file: https://github.com/actions/toolkit/tree/master/packages/core#inputsoutputs
-          const uploadUrl = core.getInput("upload_url");
+          const uploadUrl = upload_url;
           const assetPath = core.getInput("asset_path", { required: true });
           const assetName = core.getInput("asset_name", { required: true });
           const assetContentType = core.getInput("asset_content_type", {
             required: true
           });
-
+          console.log("uploadUrl", uploadUrl);
           // Determine content-length for header to upload asset
           const contentLength = filePath => fs.statSync(filePath).size;
 
@@ -9874,6 +9884,7 @@ module.exports = /******/ (function(modules, runtime) {
     /***/ 760: /***/ function(module, __unusedexports, __webpack_require__) {
       const core = __webpack_require__(470);
       const { GitHub, context } = __webpack_require__(469);
+      let { url } = __webpack_require__(31);
 
       async function createRelease() {
         try {
@@ -9931,6 +9942,7 @@ module.exports = /******/ (function(modules, runtime) {
           core.setOutput("id", releaseId);
           core.setOutput("html_url", htmlUrl);
           core.setOutput("upload_url", uploadUrl);
+          url = uploadUrl;
         } catch (error) {
           core.setFailed(error.message);
         }
@@ -25720,9 +25732,7 @@ module.exports = /******/ (function(modules, runtime) {
         return (
           !!length &&
           (typeof value == "number" || reIsUint.test(value)) &&
-          value > -1 &&
-          value % 1 == 0 &&
-          value < length
+          value > -1 && value % 1 == 0 && value < length
         );
       }
 
@@ -26899,6 +26909,81 @@ module.exports = /******/ (function(modules, runtime) {
       /***/
     }
 
+    /******/
+  },
+  /******/ function(__webpack_require__) {
+    // webpackRuntimeModules
+    /******/ "use strict" /* webpack/runtime/make namespace object */;
+    /******/
+
+    /******/ /******/ !(function() {
+      /******/ // define __esModule on exports
+      /******/ __webpack_require__.r = function(exports) {
+        /******/ if (typeof Symbol !== "undefined" && Symbol.toStringTag) {
+          /******/ Object.defineProperty(exports, Symbol.toStringTag, {
+            value: "Module"
+          });
+          /******/
+        }
+        /******/ Object.defineProperty(exports, "__esModule", { value: true });
+        /******/
+      };
+      /******/
+    })(); /* webpack/runtime/define property getter */
+    /******/
+
+    /******/ /******/ !(function() {
+      /******/ // define getter function for harmony exports
+      /******/ var hasOwnProperty = Object.prototype.hasOwnProperty;
+      /******/ __webpack_require__.d = function(exports, name, getter) {
+        /******/ if (!hasOwnProperty.call(exports, name)) {
+          /******/ Object.defineProperty(exports, name, {
+            enumerable: true,
+            get: getter
+          });
+          /******/
+        }
+        /******/
+      };
+      /******/
+    })(); /* webpack/runtime/harmony module decorator */
+    /******/
+
+    /******/ /******/ !(function() {
+      /******/ __webpack_require__.hmd = function(module) {
+        /******/ module = Object.create(module);
+        /******/ if (!module.children) module.children = [];
+        /******/ Object.defineProperty(module, "loaded", {
+          /******/ enumerable: true,
+          /******/ get: function() {
+            return module.l;
+          }
+          /******/
+        });
+        /******/ Object.defineProperty(module, "id", {
+          /******/ enumerable: true,
+          /******/ get: function() {
+            return module.i;
+          }
+          /******/
+        });
+        /******/ Object.defineProperty(module, "exports", {
+          /******/ enumerable: true,
+          /******/ set: function() {
+            /******/ throw new Error(
+              "ES Modules may not assign module.exports or exports.*, Use ESM export syntax, instead: " +
+                module.id
+            );
+            /******/
+          }
+          /******/
+        });
+        /******/ return module;
+        /******/
+      };
+      /******/
+    })();
+    /******/
     /******/
   }
 );

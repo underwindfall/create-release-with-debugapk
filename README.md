@@ -35,7 +35,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         tag_name: v1.0.0
-        upload_url: ${{ steps.create_release.outputs.upload_url }}
         asset_path: app/build/outputs/apk/debug/app-debug.apk
         asset_name: Example.apk
         asset_content_type: application/zip

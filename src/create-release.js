@@ -13,11 +13,16 @@ async function createRelease() {
     const tagName = core.getInput("tag_name", { required: true });
 
     // This removes the 'refs/tags' portion of the string, i.e. from 'refs/tags/v1.10.15' to 'v1.10.15'
-    const tag = tagName.replace("refs/tags/", "");
-    const releaseInputName =
-      core.getInput("release_name", { required: false }).length === 0
-        ? `Release ${tag}`
-        : core.getInput("release_name", { required: false });
+    const tag = tagName.includes("refs/tags/")
+      ? tagName.replace("refs/tags/", "")
+      : tagName;
+    const releaseInput = core.getInput("release_name", { required: false });
+    let releaseInputName = "";
+    if (releaseInput === undefined) {
+      releaseInputName = `Release ${tag}`;
+    } else {
+      releaseInputName = releaseInput;
+    }
     const releaseName = releaseInputName.replace("refs/tags/", "");
     const body = core.getInput("body", { required: false });
     const draft = core.getInput("draft", { required: false }) === "true";

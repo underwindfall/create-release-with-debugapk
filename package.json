@@ -1,0 +1,36 @@
+{
+  "name": "create-release-with-debugapk",
+  "version": "1.0.0",
+  "description": "Create a release with debug apk as additional asset",
+  "main": "dist/index.js",
+  "repository": "git@github:underwindfall/create-release-with-debugapk.git",
+  "author": "underwindfall <14819756+underwindfall@users.noreply.github.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@actions/core": "^1.0.0",
+    "@actions/exec": "^1.0.0",
+    "@actions/github": "^1.0.0"
+  },
+  "devDependencies": {
+    "jest": "^25.2.7",
+    "prettier": "^1.16.4"
+  },
+  "scripts": {
+    "test": "jest",
+    "build": "ncc build src/main.js"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "collectCoverageFrom": [
+      "src/create-release.js"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 80,
+        "functions": 80,
+        "lines": 80,
+        "statements": 80
+      }
+    }
+  }
+}

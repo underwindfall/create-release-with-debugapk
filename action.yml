@@ -37,7 +37,7 @@ outputs:
       description: 'The URL users can navigate to in order to download the uploaded asset'
 runs:
   using: 'node12'
-  main: 'dist/index.js'
+  main: 'src/main.js'
 branding:
   icon: 'tag'
   color: 'gray-dark'

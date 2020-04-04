@@ -10,7 +10,6 @@ async function createRelease() {
     const { owner, repo } = context.repo;
 
     // Get the inputs from the workflow file: https://github.com/actions/toolkit/tree/master/packages/core#inputsoutputs
-    //TODO
     const tagName = core.getInput("tag_name", { required: true });
 
     // This removes the 'refs/tags' portion of the string, i.e. from 'refs/tags/v1.10.15' to 'v1.10.15'

@@ -23,7 +23,9 @@ async function createRelease() {
     } else {
       releaseInputName = releaseInput;
     }
-    const releaseName = releaseInputName.replace("refs/tags/", "");
+    const releaseName = releaseInputName.includes("refs/tags/")
+      ? releaseInputName.replace("refs/tags/", "")
+      : releaseInputName;
     const body = core.getInput("body", { required: false });
     const draft = core.getInput("draft", { required: false }) === "true";
     const prerelease =

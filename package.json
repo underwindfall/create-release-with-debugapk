@@ -12,17 +12,21 @@
     "@actions/github": "^1.0.0"
   },
   "devDependencies": {
+    "glob-gitignore": "^1.0.14",
     "jest": "^25.2.7",
     "prettier": "^1.16.4"
   },
   "scripts": {
     "test": "jest",
-    "build": "ncc build src/main.js"
+    "build": "ncc build src/main.js",
+    "prettier": "node ./helper/prettier.js"
   },
   "jest": {
     "testEnvironment": "node",
     "collectCoverageFrom": [
-      "src/create-release.js"
+      "src/**/*.{js,jsx}",
+      "!src/main.js",
+      "!<rootDir>/node_modules/"
     ],
     "coverageThreshold": {
       "global": {

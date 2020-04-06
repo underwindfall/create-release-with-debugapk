@@ -10,7 +10,7 @@ This is a github workflow action to create a release with an additional apk as a
 **required**  used as deploy key
 
 ### tag_name
-**required**  used as deploy key
+**required**  tag version (such as v1.0.0 etc.)
 
 ### asset_path
 **required**  used as give which place to get apk

@@ -29,6 +29,9 @@ This is a github workflow action to create a release with an additional apk as a
 ### `browser_download_url`
 'The URL users can navigate to in order to download the uploaded asset'
 
+## Example Real Implementation
+Here is a rela implementation of creating release with debug apk by using this `Github Action` [PowerPermission Release Apk](https://github.com/underwindfall/PowerPermission/blob/master/.github/workflows/release.yml)
+
 ## Example Usage
 
 ```yaml

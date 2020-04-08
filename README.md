@@ -62,7 +62,7 @@ jobs:
       run: ./gradlew clean assembleDebug
 
     - name: Create release and upload apk
-      uses: underwindfall/create-release-with-debugapk@V0.0.4
+      uses: underwindfall/create-release-with-debugapk@v2.0.0
       env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
